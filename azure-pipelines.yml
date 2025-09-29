@@ -1,4 +1,5 @@
 trigger:
+
 - main
 
 pool:
@@ -13,3 +14,8 @@ steps:
     Write-Host "Machine name: $env:COMPUTERNAME"
     Write-Host "User: $env:USERNAME"
   displayName: 'Run PowerShell on Windows'
+- task: FortifySCA@7
+  inputs:
+    applicationType: 'other'
+    fortifyBuildId: 'test'
+    fortifyScanType: 'LocalScan'
