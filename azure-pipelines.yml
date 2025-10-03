@@ -19,13 +19,23 @@ steps:
 - task: FortifyScanCentralSAST@7
   inputs:
     scanCentralCtrlUrl: 'http://OTX-4RJ8874:9991/scancentral-ctrl/'
+    # scanCentralCtrlUrl: '$(ScanCentralCtrlUrl)'
     scanCentralClientToken: '$(ScanCentral.ClientToken)'
     sscUrl: 'http://otx-4rj8874:9999/ssc'
+    # sscUrl: '$(ScanCentral.SscUrl)'
     sscCiToken: '$(ScanCentral.SscCiToken)'
     uploadToSSC: true
     applicationIdentifierType: 'byId'
     applicationVersionId: '5'
     buildTool: 'none'
+
+- script: |
+    echo "Running ScanCentral SAST BEROE manually using task variables..."
+    scancentral -url http://OTX-4RJ8874:9991/scancentral-ctrl/ start \
+      -upload \
+      -uptoken $(ScanCentral.ClientToken) \
+      -applicationId 5 \
+  displayName: 'Run ScanCentral SAST BEROE manually'
 
 
 - task: FortifySCA@7
