@@ -1,5 +1,6 @@
 trigger:
 
+
 - main
 
 pool:
@@ -14,6 +15,18 @@ steps:
     Write-Host "Machine name: $env:COMPUTERNAME"
     Write-Host "User: $env:USERNAME"
   displayName: 'Run PowerShell on Windows'
+
+- task: FortifyScanCentralSAST@7
+  inputs:
+    scanCentralCtrlUrl: 'http://OTX-4RJ8874:9991/scancentral-ctrl/'
+    scanCentralClientToken: '$(ScanCentral.ClientToken)'
+    sscUrl: 'http://otx-4rj8874:9999/ssc'
+    sscCiToken: '$(ScanCentral.SscCiToken)'
+    uploadToSSC: true
+    applicationIdentifierType: 'byId'
+    applicationVersionId: '5'
+
+
 - task: FortifySCA@7
   inputs:
     applicationType: 'other'
