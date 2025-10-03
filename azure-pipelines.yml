@@ -36,15 +36,15 @@ steps:
       scancentral -url http://OTX-4RJ8874:9991/scancentral-ctrl/ start ^
         -upload ^
         -uptoken $(ScanCentral.SscCiToken) ^
-        -applicationId 5
+        -versionid 5
 
 
 - script: |
-      echo "Running ScanCentral SAST BEROE manually using task variables..."
+      echo "Running ScanCentral SAST BEROE manually using task variables 2..."
       scancentral -url http://OTX-4RJ8874:9991/scancentral-ctrl/ start ^
         -upload ^
         -uptoken $(ScanCentral.SscCiToken) ^
-        -applicationId 5
+        -versionid 5
   displayName: 'Run ScanCentral SAST BEROE manually'
 
 
