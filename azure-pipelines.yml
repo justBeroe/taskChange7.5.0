@@ -25,6 +25,7 @@ steps:
     uploadToSSC: true
     applicationIdentifierType: 'byId'
     applicationVersionId: '5'
+    buildTool: 'none'
 
 
 - task: FortifySCA@7
