@@ -34,7 +34,7 @@ steps:
     scancentral -url http://OTX-4RJ8874:9991/scancentral-ctrl/ start \
       -upload \
       -uptoken $(ScanCentral.ClientToken) \
-      -applicationId 5 \
+      -applicationId 5 
   displayName: 'Run ScanCentral SAST BEROE manually'
 
 
