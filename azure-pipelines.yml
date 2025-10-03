@@ -29,40 +29,41 @@ steps:
     applicationVersionId: '5'
     buildTool: 'none'
 
-- task: CmdLine@2
-  inputs:
-    script: |
-      echo "Running ScanCentral SAST BEROE manually using task variables..."
-      scancentral -url http://OTX-4RJ8874:9991/scancentral-ctrl/ start ^
-        -upload ^
-        -uptoken $(ScanCentral.SscCiToken) ^
-        -versionid 5
+# - task: CmdLine@2
+#   inputs:
+#     script: |
+#       echo "Running ScanCentral SAST BEROE manually using task variables..."
+#       scancentral -url http://OTX-4RJ8874:9991/scancentral-ctrl/ start ^
+#         -upload ^
+#         -uptoken $(ScanCentral.SscCiToken) ^
+#         -versionid 5
 
 
-- script: |
-    echo "Running ScanCentral SAST BEROE manually using task variables 2..."
-    scancentral -url http://OTX-4RJ8874:9991/scancentral-ctrl/ start ^
-      -upload ^
-      -uptoken $(ScanCentral.SscCiToken) ^
-      -versionid 5
-    echo "Scanning finished (ignoring errors)"
+# - script: |
+#     echo "Running ScanCentral SAST BEROE manually using task variables 2..."
+#     scancentral -url http://OTX-4RJ8874:9991/scancentral-ctrl/ start ^
+#       -upload ^
+#       -uptoken $(ScanCentral.SscCiToken) ^
+#       -versionid 5
+#   displayName: 'Run ScanCentral SAST BEROE manually'
+#   continueOnError: true
+
+
+# - script: |
+#     echo "Running ScanCentral SAST BEROE manually using task variables 3..."
+#     scancentral -url http://OTX-4RJ8874:9991/scancentral-ctrl/ start ^
+#       -upload ^
+#       -uptoken $(ScanCentral.SscCiToken) ^
+#       -application beroe ^
+#       -version 5
+#   displayName: 'Run ScanCentral SAST BEROE manually'
+#   continueOnError: true
+
+- script: |  
+    echo "Show client.properties FILE"
     cd
     dir client.properties /s
-  displayName: 'Run ScanCentral SAST BEROE manually'
-  continueOnError: true
-
-
-- script: |
-    echo "Running ScanCentral SAST BEROE manually using task variables 3..."
-    scancentral -url http://OTX-4RJ8874:9991/scancentral-ctrl/ start ^
-      -upload ^
-      -uptoken $(ScanCentral.SscCiToken) ^
-      -application beroe ^
-      -version 5
-    echo "Scanning finished (ignoring errors) 2"
-    cd
-    dir client.properties /s
-  displayName: 'Run ScanCentral SAST BEROE manually'
+  displayName: 'SHOW directory and files only'
   continueOnError: true
 
 
