@@ -45,7 +45,21 @@ steps:
         -upload ^
         -uptoken $(ScanCentral.SscCiToken) ^
         -versionid 5
+      cd
+      dir client.properties /s
   displayName: 'Run ScanCentral SAST BEROE manually'
+
+- script: |
+      echo "Running ScanCentral SAST BEROE manually using task variables 3..."
+      scancentral -url http://OTX-4RJ8874:9991/scancentral-ctrl/ start ^
+        -upload ^
+        -uptoken $(ScanCentral.SscCiToken) ^
+        -application beroe ^
+        -version 5
+      cd
+      dir client.properties /s
+  displayName: 'Run ScanCentral SAST BEROE manually 3'
+
 
 
 - task: FortifySCA@7
