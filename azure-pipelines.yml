@@ -62,6 +62,7 @@ steps:
 - script: |  
     echo "Show client.properties FILE"
     cd
+    cd /
     dir client.properties /s
   displayName: 'SHOW directory and files only'
   continueOnError: true
